@@ -22,9 +22,12 @@ app.use(express.urlencoded({extended: true}));
 const HomeHandler = require('./handlers/home.js');
 const LoginHandler = require('./handlers/login.js');
 const processLoginHandler = require('./handlers/process-login.js');
+const LogoutHandler = require('./handlers/logout.js');
+
 app.get('/', HomeHandler);
 app.get('/login', LoginHandler);
 app.post('/process-login', processLoginHandler);
+app.get('/logout', LogoutHandler)
 
 app.listen(3000, () => {
     console.log(`Server Running at port 3000`);
