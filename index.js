@@ -18,7 +18,13 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// @todo register routes
+// register routes
+const HomeHandler = require('./handlers/home.js');
+const LoginHandler = require('./handlers/login.js');
+const processLoginHandler = require('./handlers/process-login.js');
+app.get('/', HomeHandler);
+app.get('/login', LoginHandler);
+app.post('/process-login', processLoginHandler);
 
 app.listen(3000, () => {
     console.log(`Server Running at port 3000`);
